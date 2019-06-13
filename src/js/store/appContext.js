@@ -35,7 +35,7 @@ const injectContext = PassedComponent => {
 				.then(data => {
 					console.log("GET");
 					console.log(data);
-					this.store.setState({ obj: data });
+					this.setState({ obj: data });
 				})
 				.catch(error => {
 					console.log(error);

@@ -9,11 +9,14 @@ export class Home extends React.Component {
 			<div>
 				<Context.Consumer>
 					{({ store, actions }) => {
-						<div className="text-center mt-5" onLoad={() => actions.seturl("https://swapi.co/api/")}>
-							<p>
-								<img src={rigoImage} />
-							</p>
-						</div>;
+						actions.seturl("https://swapi.co/api/");
+						return (
+							<div className="text-center mt-5">
+								<p>
+									<img src={rigoImage} />
+								</p>
+							</div>
+						);
 					}}
 				</Context.Consumer>
 			</div>
