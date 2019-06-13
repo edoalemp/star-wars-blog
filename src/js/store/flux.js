@@ -10,7 +10,7 @@ const getState = ({ getStore, setStore }) => {
 				setStore({ url: urlstring });
 			}
 
-			//string => this.store.setState({ url: string })
+			//seturl: string => this.store.setState({ url: string })
 
 			/*			changeColor: (index, color) => {
 				//get the store

@@ -41,8 +41,6 @@ const injectContext = PassedComponent => {
 					console.log(error);
 				});
 
-			console.log(this.state.store.url);
-
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only run once on the entire application lifetime
