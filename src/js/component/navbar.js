@@ -11,24 +11,18 @@ export class Navbar extends React.Component {
 
 				<ul className="navbar-nav">
 					<li className="nav-item">
-						<Link to="/characters">
-							<a className="nav-link" href="#">
-								Characters
-							</a>
+						<Link to="/characters" className="nav-link">
+							Characters
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link to="/machines">
-							<a className="nav-link" href="#">
-								Machines
-							</a>
+						<Link to="/starships" className="nav-link">
+							Starship
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link to="/worlds">
-							<a className="nav-link" href="#">
-								Worlds
-							</a>
+						<Link to="/worlds" className="nav-link">
+							Worlds
 						</Link>
 					</li>
 				</ul>

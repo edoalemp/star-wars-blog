@@ -1,21 +1,18 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			obj: {},
+			url: ""
 		},
 		actions: {
-			changeColor: (index, color) => {
+			seturl: urlstring => {
+				const store = getStore();
+				setStore({ url: urlstring });
+			}
+
+			//string => this.store.setState({ url: string })
+
+			/*			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
 
@@ -28,7 +25,8 @@ const getState = ({ getStore, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+*/
 		}
 	};
 };

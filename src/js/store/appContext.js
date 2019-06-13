@@ -22,6 +22,27 @@ const injectContext = PassedComponent => {
 		}
 
 		componentDidMount() {
+			console.log(this.state.store);
+			fetch(this.state.store.url, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+				.then(resp => {
+					return resp.json();
+				})
+				.then(data => {
+					console.log("GET");
+					console.log(data);
+					this.store.setState({ obj: data });
+				})
+				.catch(error => {
+					console.log(error);
+				});
+
+			console.log(this.state.store.url);
+
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only run once on the entire application lifetime
