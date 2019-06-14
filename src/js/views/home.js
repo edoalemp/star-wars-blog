@@ -9,7 +9,7 @@ export class Home extends React.Component {
 			<div>
 				<Context.Consumer>
 					{({ store, actions }) => {
-						actions.seturl("https://swapi.co/api/");
+						actions.fetchget("https://swapi.co/api/");
 						return (
 							<div className="text-center mt-5">
 								<p>

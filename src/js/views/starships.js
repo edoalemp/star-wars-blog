@@ -1,6 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/demo.scss";
+import "../../styles/home.scss";
 
-export class starships extends React.Component {}
+export class Starships extends React.Component {
+	render() {
+		return (
+			<div>
+				<Context.Consumer>
+					{({ store, actions }) => {
+						actions.fetchget("https://swapi.co/api/starships/");
+						return (
+							<div className="text-center mt-5">
+								<p>naves</p>
+							</div>
+						);
+					}}
+				</Context.Consumer>
+			</div>
+		);
+	}
+}
