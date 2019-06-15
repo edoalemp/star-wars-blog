@@ -1,5 +1,6 @@
 import React from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 
 export class Characters extends React.Component {
@@ -18,9 +19,12 @@ export class Characters extends React.Component {
 										<div className="card-body">
 											<h4 className="card-title">{array[i]["name"]}</h4>
 											<p className="card-text">Some example text.</p>
-											<a href="#" className="btn btn-primary">
+											<Link
+												to="/single/:theid"
+												className="btn btn-primary"
+												onClick={() => actions.fetchget(store.obj.results[i]["url"])}>
 												See Profile
-											</a>
+											</Link>
 										</div>
 									</div>
 								);

@@ -8,22 +8,21 @@ export class Single extends React.Component {
 		return (
 			<div className="jumbotron">
 				<Context.Consumer>
-					{({ store }) => {
+					{({ store, actions }) => {
 						return (
-							<h1 className="display-4">
-								This will show the demo element: {store.demo[this.props.match.params.theid].title}
-							</h1>
+							<div>
+								<h1 className="display-4">This will show the demo element: {store.obj["gender"]}</h1>
+								<hr className="my-4" />
+
+								<Link to="/characters" onClick={() => actions.fetchget("https://swapi.co/api/people/")}>
+									<span className="btn btn-primary btn-lg" href="#" role="button">
+										Back home
+									</span>
+								</Link>
+							</div>
 						);
 					}}
 				</Context.Consumer>
-
-				<hr className="my-4" />
-
-				<Link to="/">
-					<span className="btn btn-primary btn-lg" href="#" role="button">
-						Back home
-					</span>
-				</Link>
 			</div>
 		);
 	}
