@@ -7,7 +7,7 @@ const getState = ({ getStore, setStore }) => {
 		actions: {
 			fetchget: urlstring => {
 				const store = getStore();
-
+				console.log(store);
 				fetch(urlstring, {
 					method: "GET",
 					headers: {
@@ -22,7 +22,7 @@ const getState = ({ getStore, setStore }) => {
 						console.log(data);
 						store.preobj = store.obj;
 						store.obj = data;
-						setStore(store);
+						setStore({ store: store });
 					})
 					.catch(error => {
 						console.log(error);
