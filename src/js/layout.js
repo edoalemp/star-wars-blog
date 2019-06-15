@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { characters } from "./views/characters";
-import { starships } from "./views/starships";
-import { worlds } from "./views/worlds";
+import { Characters } from "./views/characters";
+import { Starships } from "./views/starships";
+import { Worlds } from "./views/worlds";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
@@ -26,9 +26,9 @@ export class Layout extends React.Component {
 						<Navbar />
 						<Switch>
 							<Route exact path="/" component={Home} />
-							<Route path="/characters" component={characters} />
-							<Route path="/starships" component={starships} />
-							<Route path="/worlds" component={worlds} />
+							<Route path="/characters" component={Characters} />
+							<Route path="/starships" component={Starships} />
+							<Route path="/worlds" component={Worlds} />
 							<Route path="/single/:theid" component={Single} />
 							<Route render={() => <h1>Not found!</h1>} />
 						</Switch>

@@ -21,32 +21,7 @@ const injectContext = PassedComponent => {
 			});
 		}
 
-		componentDidMount() {
-			console.log(this.state.store);
-			fetch(this.state.store.url, {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json"
-				}
-			})
-				.then(resp => {
-					return resp.json();
-				})
-				.then(data => {
-					console.log("GET");
-					console.log(data);
-					this.setState({ obj: data });
-				})
-				.catch(error => {
-					console.log(error);
-				});
-
-			/**
-			 * EDIT THIS!
-			 * This function is the equivalent to "window.onLoad", it only run once on the entire application lifetime
-			 * you should do your ajax requests or fetch api requests here
-			 **/
-		}
+		componentDidMount() {}
 
 		render() {
 			// the initial value for the context its not null anymore, but the current state of this component,

@@ -2,31 +2,32 @@ const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			obj: {},
-			url: ""
+			preobj: {}
 		},
 		actions: {
-			seturl: urlstring => {
+			fetchget: urlstring => {
 				const store = getStore();
-				setStore({ url: urlstring });
+
+				fetch(urlstring, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(resp => {
+						return resp.json();
+					})
+					.then(data => {
+						console.log("GET");
+						console.log(data);
+						store.preobj = store.obj;
+						store.obj = data;
+						setStore(store);
+					})
+					.catch(error => {
+						console.log(error);
+					});
 			}
-
-			//seturl: string => this.store.setState({ url: string })
-
-			/*			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
-*/
 		}
 	};
 };

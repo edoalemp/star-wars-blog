@@ -9,9 +9,21 @@ export class Worlds extends React.Component {
 				<Context.Consumer>
 					{({ store, actions }) => {
 						actions.fetchget("https://swapi.co/api/planets/");
+						let arrayhtml = [];
+						let array = store.obj.results;
+						if (array !== undefined) {
+							for (let i = 0; i <= array.length - 1; i++) {
+								arrayhtml.push(
+									<div className="card">
+										<div className="card-body">{array[i]["name"]}</div>
+									</div>
+								);
+							}
+						}
 						return (
-							<div className="text-center mt-5">
-								<p>planets</p>
+							<div>
+								<h1>PLANETS</h1>
+								<div className="row">{arrayhtml}</div>
 							</div>
 						);
 					}}
