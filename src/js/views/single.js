@@ -10,14 +10,13 @@ export class Single extends React.Component {
 				<Context.Consumer>
 					{({ store, actions }) => {
 						console.log(store.obj);
-						let attribarray = Object.getOwnPropertyNames(store.obj);
-						console.log(attribarray);
 						let arrayhtml = [];
-						for (let i = 0; i <= attribarray.length - 1; i++) {
+
+						for (let attrib in store.obj) {
 							arrayhtml.push(
-								<tr key={i}>
-									<td>{attribarray[i]}</td>
-									<td>{store.obj[attribarray[i]]}</td>
+								<tr key={attrib}>
+									<td>{attrib}</td>
+									<td>{store.obj[attrib]}</td>
 								</tr>
 							);
 						}
