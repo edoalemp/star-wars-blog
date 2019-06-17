@@ -22,7 +22,11 @@ const getState = ({ getStore, setStore }) => {
 						console.log(data);
 						store.preobj = store.obj;
 						store.obj = data;
-						setStore({ store: store });
+						console.log(store);
+						setStore({
+							preobj: store.obj,
+							obj: data
+						});
 					})
 					.catch(error => {
 						console.log(error);
