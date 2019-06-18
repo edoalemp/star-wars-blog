@@ -2,14 +2,10 @@ const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			obj: {},
-			preobj: {},
-			cond: ""
+			preobj: {}
 		},
 		actions: {
 			fetchget: urlstring => {
-				const tstore = getStore();
-				console.log(tstore);
-				console.log("ok");
 				fetch(urlstring, {
 					method: "GET",
 					headers: {
@@ -20,14 +16,9 @@ const getState = ({ getStore, setStore }) => {
 						return resp.json();
 					})
 					.then(data => {
-						console.log("GET");
-						console.log(data);
-						tstore.preobj = tstore.obj;
-						tstore.obj = data;
-						console.log(tstore);
 						setStore({
-							preobj: tstore.preobj,
-							obj: tstore.obj
+							preobj: getStore().obj,
+							obj: data
 						});
 					})
 					.catch(error => {
