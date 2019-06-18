@@ -11,8 +11,10 @@ export class Characters extends React.Component {
 					{({ store, actions }) => {
 						console.log(store);
 						let arrayhtml = [];
+						let array = [];
+						let x;
 
-						let array = store.obj.results;
+						array = store.obj.results;
 						if (array !== undefined) {
 							for (let i = 0; i <= array.length - 1; i++) {
 								arrayhtml.push(
@@ -22,7 +24,7 @@ export class Characters extends React.Component {
 											<h4 className="card-title">{array[i]["name"]}</h4>
 											<p className="card-text">Some example text.</p>
 											<Link
-												to="/single/:theid"
+												to="/single"
 												className="btn btn-primary"
 												onClick={() => actions.fetchget(store.obj.results[i]["url"])}>
 												See Profile
@@ -33,7 +35,7 @@ export class Characters extends React.Component {
 							}
 						}
 
-						return (
+						x = (
 							<div>
 								<h1>CHARACTERS</h1>
 								<div className="row">{arrayhtml}</div>
@@ -51,6 +53,8 @@ export class Characters extends React.Component {
 								</button>
 							</div>
 						);
+
+						return x;
 					}}
 				</Context.Consumer>
 			</div>

@@ -6,24 +6,26 @@ const getState = ({ getStore, setStore }) => {
 		},
 		actions: {
 			fetchget: urlstring => {
-				fetch(urlstring, {
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json"
-					}
-				})
-					.then(resp => {
-						return resp.json();
+				let tempstore = getStore();
+				console.log(tempstore),
+					fetch(urlstring, {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json"
+						}
 					})
-					.then(data => {
-						setStore({
-							preobj: getStore().obj,
-							obj: data
+						.then(resp => {
+							return resp.json();
+						})
+						.then(data => {
+							setStore({
+								preobj: tempstore.obj,
+								obj: data
+							});
+						})
+						.catch(error => {
+							console.log(error);
 						});
-					})
-					.catch(error => {
-						console.log(error);
-					});
 			}
 		}
 	};
