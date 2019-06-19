@@ -9,27 +9,24 @@ export class Single extends React.Component {
 			<div className="jumbotron">
 				<Context.Consumer>
 					{({ store, actions }) => {
-						console.log("okk");
-						console.log(store.obj);
 						let arrayhtml = [];
-						let backstring = [];
 						let url = "https://swapi.co/api";
 						let link = "";
-						for (let attrib in store.obj) {
-							if (typeof store.obj[attrib] === "string") {
+						for (let attrib in store.details) {
+							if (typeof store.details[attrib] === "string") {
 								arrayhtml.push(
 									<tr key={attrib}>
 										<td>{attrib}</td>
-										<td>{store.obj[attrib]}</td>
+										<td>{store.details[attrib]}</td>
 									</tr>
 								);
 							}
-							if (typeof store.obj[attrib] === "object" && Array.isArray(store.obj[attrib])) {
+							if (typeof store.details[attrib] === "object" && Array.isArray(store.details[attrib])) {
 								let array = [];
-								console.log(store.obj[attrib].length);
-								for (let i = 0; i <= store.obj[attrib].length - 1; i++) {
-									if (typeof store.obj[attrib][i] === "string")
-										array.push(<li key={i}>{store.obj[attrib][i]}</li>);
+
+								for (let i = 0; i <= store.details[attrib].length - 1; i++) {
+									if (typeof store.details[attrib][i] === "string")
+										array.push(<li key={i}>{store.details[attrib][i]}</li>);
 								}
 								arrayhtml.push(
 									<tr key={attrib}>
@@ -41,7 +38,7 @@ export class Single extends React.Component {
 								);
 							}
 							if (attrib === "url") {
-								let str = store.obj[attrib];
+								let str = store.details[attrib];
 
 								if (str.search("people") !== -1) {
 									link = "/characters";
@@ -55,7 +52,6 @@ export class Single extends React.Component {
 									link = "/worlds";
 									url = url + "/planets/";
 								}
-								console.log(url);
 							}
 						}
 
@@ -64,7 +60,7 @@ export class Single extends React.Component {
 								<table className="table table-striped">
 									<thead>{arrayhtml}</thead>
 								</table>
-								<Link to={link} onClick={() => actions.fetchget(url)}>
+								<Link to={link} /*onClick={() => actions.fetchget(url)}*/>
 									<span className="btn btn-primary btn-lg" href="#" role="button">
 										Back home
 									</span>
