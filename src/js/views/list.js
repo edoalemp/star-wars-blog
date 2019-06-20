@@ -24,7 +24,7 @@ export class List extends React.Component {
 											<Link
 												to="/single"
 												className="btn btn-primary"
-												onClick={() => actions.setdetails(store.obj.results[i])}>
+												onClick={() => actions.viewdetails(store.obj.results[i])}>
 												See Details
 											</Link>
 											<a

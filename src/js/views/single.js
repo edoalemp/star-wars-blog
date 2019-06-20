@@ -10,7 +10,6 @@ export class Single extends React.Component {
 				<Context.Consumer>
 					{({ store, actions }) => {
 						let arrayhtml = [];
-						let url = "https://swapi.co/api";
 						let link = "";
 						for (let attrib in store.details) {
 							if (typeof store.details[attrib] === "string") {
@@ -23,7 +22,6 @@ export class Single extends React.Component {
 							}
 							if (typeof store.details[attrib] === "object" && Array.isArray(store.details[attrib])) {
 								let array = [];
-
 								for (let i = 0; i <= store.details[attrib].length - 1; i++) {
 									if (typeof store.details[attrib][i] === "string")
 										array.push(<li key={i}>{store.details[attrib][i]}</li>);
@@ -37,20 +35,21 @@ export class Single extends React.Component {
 									</tr>
 								);
 							}
-							if (attrib === "url") {
+							if (
+								(attrib !== undefined && attrib === "url") ||
+								(attrib !== undefined && attrib === "next") ||
+								(attrib !== undefined && attrib === "previous")
+							) {
 								let str = store.details[attrib];
 
 								if (str.search("people") !== -1) {
 									link = "/characters";
-									url = url + "/people/";
 								}
 								if (str.search("starships") !== -1) {
 									link = "/starships";
-									url = url + "/starships/";
 								}
 								if (str.search("planets") !== -1) {
 									link = "/worlds";
-									url = url + "/planets/";
 								}
 							}
 						}
@@ -60,11 +59,19 @@ export class Single extends React.Component {
 								<table className="table table-striped">
 									<thead>{arrayhtml}</thead>
 								</table>
-								<Link to={link} /*onClick={() => actions.fetchget(url)}*/>
+								<Link to={link}>
 									<span className="btn btn-primary btn-lg" href="#" role="button">
-										Back home
+										Back
 									</span>
 								</Link>
+
+								<span
+									className="btn btn-primary btn-lg"
+									href="#"
+									role="button"
+									onClick={() => actions.setfavorites(store.details)}>
+									Add to Favorites
+								</span>
 							</div>
 						);
 					}}

@@ -26,7 +26,7 @@ const getState = ({ getStore, setStore }) => {
 						console.log(error);
 					});
 			},
-			setdetails: objdetails => {
+			viewdetails: objdetails => {
 				setStore({ details: objdetails });
 			},
 			setfavorites: obj => {
