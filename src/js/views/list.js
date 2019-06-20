@@ -9,7 +9,6 @@ export class List extends React.Component {
 			<div>
 				<Context.Consumer>
 					{({ store, actions }) => {
-						console.log(store);
 						let arrayhtml = [];
 						let array = [];
 						let x;
@@ -26,8 +25,13 @@ export class List extends React.Component {
 												to="/single"
 												className="btn btn-primary"
 												onClick={() => actions.setdetails(store.obj.results[i])}>
-												See Profile
+												See Details
 											</Link>
+											<a
+												className="btn btn-primary"
+												onClick={() => actions.setfavorites(store.obj.results[i])}>
+												Add to favorites
+											</a>
 										</div>
 									</div>
 								);

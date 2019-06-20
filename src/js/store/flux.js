@@ -3,7 +3,7 @@ const getState = ({ getStore, setStore }) => {
 		store: {
 			obj: {},
 			details: {},
-			favoritos: {}
+			favorites: []
 		},
 		actions: {
 			fetchget: urlstring => {
@@ -26,10 +26,29 @@ const getState = ({ getStore, setStore }) => {
 						console.log(error);
 					});
 			},
-			setdetails: arraydetails => {
-				setStore({ details: arraydetails });
+			setdetails: objdetails => {
+				setStore({ details: objdetails });
 			},
-			setfavorites: () => {}
+			setfavorites: obj => {
+				let tempstore = getStore();
+				let newitem = true;
+
+				console.log(tempstore.favorites);
+				if (tempstore.favorites.length >= 0) {
+					for (let i = 0; i <= tempstore.favorites.length - 1; i++) {
+						console.log(obj);
+						console.log(tempstore.favorites[i]);
+						if (obj === tempstore.favorites[i]) {
+							newitem = false;
+							break;
+						}
+					}
+				}
+				if (newitem) {
+					tempstore.favorites.push(obj);
+					setStore({ favorites: tempstore.favorites });
+				}
+			}
 		}
 	};
 };
