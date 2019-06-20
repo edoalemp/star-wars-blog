@@ -9,7 +9,6 @@ export class Worlds extends React.Component {
 			<div>
 				<Context.Consumer>
 					{({ store, actions }) => {
-						console.log(store);
 						let arrayhtml = [];
 						let array = [];
 						let x;

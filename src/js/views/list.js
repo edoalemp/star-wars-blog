@@ -3,12 +3,13 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 
-export class Starships extends React.Component {
+export class List extends React.Component {
 	render() {
 		return (
 			<div>
 				<Context.Consumer>
 					{({ store, actions }) => {
+						console.log(store);
 						let arrayhtml = [];
 						let array = [];
 						let x;

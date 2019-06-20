@@ -8,7 +8,6 @@ import { Starships } from "./views/starships";
 import { Worlds } from "./views/worlds";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-import { List } from "./views/list";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -27,9 +26,9 @@ export class Layout extends React.Component {
 						<Navbar />
 						<Switch>
 							<Route exact path="/" component={Home} />
-							<Route path="/characters" component={List} />
-							<Route path="/starships" component={List} />
-							<Route path="/worlds" component={List} />
+							<Route path="/characters" component={Characters} />
+							<Route path="/starships" component={Starships} />
+							<Route path="/worlds" component={Worlds} />
 							<Route path="/single" component={Single} />
 							<Route render={() => <h1>Not found!</h1>} />
 						</Switch>
