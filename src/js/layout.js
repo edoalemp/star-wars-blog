@@ -3,15 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Characters } from "./views/characters";
-import { Starships } from "./views/starships";
-import { Worlds } from "./views/worlds";
-import { Single } from "./views/single";
-import injectContext from "./store/appContext";
 import { List } from "./views/list";
-
+import { Single } from "./views/single";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import injectContext from "./store/appContext";
 
 //create your first component
 export class Layout extends React.Component {
