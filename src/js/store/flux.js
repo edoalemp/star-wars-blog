@@ -36,8 +36,6 @@ const getState = ({ getStore, setStore }) => {
 				console.log(tempstore.favorites);
 				if (tempstore.favorites.length >= 0) {
 					for (let i = 0; i <= tempstore.favorites.length - 1; i++) {
-						console.log(obj);
-						console.log(tempstore.favorites[i]);
 						if (obj === tempstore.favorites[i]) {
 							newitem = false;
 							break;

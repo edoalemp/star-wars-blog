@@ -35,23 +35,25 @@ export class Single extends React.Component {
 									</tr>
 								);
 							}
-							if (
-								(attrib !== undefined && attrib === "url") ||
-								(attrib !== undefined && attrib === "next") ||
-								(attrib !== undefined && attrib === "previous")
-							) {
-								let str = store.details[attrib];
+						}
 
-								if (str.search("people") !== -1) {
-									link = "/characters";
-								}
-								if (str.search("starships") !== -1) {
-									link = "/starships";
-								}
-								if (str.search("planets") !== -1) {
-									link = "/worlds";
-								}
-							}
+						if (
+							(store.obj.next !== null && store.obj.next.search("people") !== -1) ||
+							(store.obj.previous !== null && store.obj.previous.search("people") !== -1)
+						) {
+							link = "/characters";
+						}
+						if (
+							(store.obj.next !== null && store.obj.next.search("starships") !== -1) ||
+							(store.obj.previous !== null && store.obj.previous.search("starships") !== -1)
+						) {
+							link = "/starships";
+						}
+						if (
+							(store.obj.next !== null && store.obj.next.search("planets") !== -1) ||
+							(store.obj.previous !== null && store.obj.previous.search("planets") !== -1)
+						) {
+							link = "/worlds";
 						}
 
 						return (
